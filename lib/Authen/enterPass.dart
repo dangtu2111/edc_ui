@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
+import 'ForgotPasswordSheet.dart';
 import 'component/Background.dart';
 
 class LogInScreen extends StatefulWidget {
@@ -31,7 +32,14 @@ class _LogInScreenState extends State<LogInScreen> {
     _passwordController.dispose();
     super.dispose();
   }
-
+  void _showForgotPasswordSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) =>  ForgotPasswordSheet(),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -192,8 +200,14 @@ class _LogInScreenState extends State<LogInScreen> {
                         controller: _nftController,
                         decoration: const InputDecoration(
                           hintText: '1111 1582 2345',
+                          hintStyle: TextStyle(
+                            color: Color(0xFFA4A4A4), // Màu của hintText
+                            fontSize: 16, // Kích thước font
+                          ),
                           border: InputBorder.none,
                         ),
+                        textAlign: TextAlign.left, // Căn trái nội dung
+                        textAlignVertical: TextAlignVertical.center,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your NFT number';
@@ -219,6 +233,7 @@ class _LogInScreenState extends State<LogInScreen> {
               height: 52,
       
               decoration: BoxDecoration(
+                color:Colors.white,
                 border: Border.all(
                   color: const Color(0xFFD2D2D2),  // Màu của viền
                   width: 1,  // Độ dày của viền
@@ -249,6 +264,8 @@ class _LogInScreenState extends State<LogInScreen> {
                       },
                     ),// Không hiển thị viền trong TextFormField
                 ),
+                textAlign: TextAlign.left, // Căn trái nội dung
+                textAlignVertical: TextAlignVertical.center,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your password';
@@ -257,16 +274,27 @@ class _LogInScreenState extends State<LogInScreen> {
                 },
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 10),
             Align(
               alignment: Alignment.centerLeft,
               child: GestureDetector(
                 onTap: () {
                   print("Forgot password clicked");
                 },
-                child: const Text(
-                  "Forgot password?",
-                  style: TextStyle(color: Colors.black),
+                child:ElevatedButton(
+                  onPressed: (){
+                    _showForgotPasswordSheet(context);
+                  },
+                  child: const Text(
+                    "Forgot password?",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Colors.transparent,
+                    padding: EdgeInsets.zero
+
+                  ),
                 ),
               ),
             ),

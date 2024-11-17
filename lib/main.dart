@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'Authen/BirdaySheet.dart';
 import 'Authen/NewFeed.dart';
 import 'Authen/addContact.dart';
+import 'Authen/splash.dart';
+import 'Authen/startSreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.grey[100],
         body: Center(
-          child: NewsFeedScreen(),
+          child: SplashSreen(),
         ),
       ),
     );

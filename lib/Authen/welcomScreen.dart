@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'component/Background.dart';
+import 'createAccount.dart';
+import 'enterPass.dart';
 class WelcomScreen extends StatelessWidget{
   const WelcomScreen({super.key});
   @override
@@ -28,7 +30,7 @@ class WelcomScreen extends StatelessWidget{
                   ),
                   _textContent(),
                   const SizedBox(height: 20),
-                  _bottomScreen()
+                  _bottomScreen(context)
 
                 ]
               ),
@@ -83,7 +85,7 @@ class WelcomScreen extends StatelessWidget{
       ),
     );
   }
-  Widget _bottomScreen(){
+  Widget _bottomScreen(BuildContext context){
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -91,8 +93,11 @@ class WelcomScreen extends StatelessWidget{
         children: [
           ElevatedButton(
             onPressed: () {
-              // Xử lý khi nút bấm được nhấn
-              print('Button pressed');
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LogInScreen()),
+              );
             },
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
@@ -112,7 +117,10 @@ class WelcomScreen extends StatelessWidget{
           ElevatedButton(
             onPressed: () {
               // Xử lý khi nút bấm được nhấn
-              print('Button pressed');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CreateaccountScreen()),
+              );
             },
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.black,
