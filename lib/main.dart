@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.grey[100],
-        body: Center(
-          child: SplashSreen(),
+        body: const Center(
+          child: NewsFeedScreen(),
         ),
       ),
     );

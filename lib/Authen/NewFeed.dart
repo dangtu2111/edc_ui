@@ -39,19 +39,19 @@ class NewsFeedScreen extends StatelessWidget {
 
                     // List of courses
                     _buildCourseItem(
-                      image: 'assets/mentoring.jpg',
+                      image: 'assets/images/image01.png',
                       title: 'Mentoring and Coaching 1:1',
                       duration: '1 hour',
                       progress: 0.7,
                     ),
                     _buildCourseItem(
-                      image: 'assets/admissions.jpg',
+                      image: 'assets/images/image01.png',
                       title: 'Admissions and Scholar',
                       duration: '1 hour',
                       progress: 0.85,
                     ),
                     _buildCourseItem(
-                      image: 'assets/multilingual.jpg',
+                      image: 'assets/images/image01.png',
                       title: 'Multilingual Teacher',
                       duration: '1 hour',
                       progress: 0.6,
@@ -116,13 +116,95 @@ class NewsFeedScreen extends StatelessWidget {
                 ),
               ],
             ),
+              SizedBox(height: 20),
+              Row(
+                children: [
+                  SizedBox(width: 20,),
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.grey,
+                    ),
+                    child: Image.asset("assets/images/logo05.png"),
+                  ),
+                  const SizedBox(width: 8),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+
+                      Text(
+                        'User Name',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        '2 hours ago',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
               // Content Feed
               _buildContentFeed(),
+
+
             ],
           ),
         ),
       ),
-      bottomNavigationBar: _buildBottomNavBar(),
+      bottomNavigationBar: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          _buildBottomNavBar(),
+          Positioned(
+            bottom: 10, // Đẩy nút lên khỏi cạnh dưới
+            child: Container(
+              width: 100,
+              height: 45,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xFF124984), Color(0xFF369C09)], // Màu sắc gradient
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(187), // Làm tròn nút
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: Offset(0, 2), // Hiệu ứng bóng
+                  ),
+                ],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset("assets/images/icon/icon15.png",width: 25,),
+                  SizedBox(width: 5),
+                  Text(
+                    "EDC meet",
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
   Widget _buildNavigationButton(String label) {
@@ -190,7 +272,7 @@ class NewsFeedScreen extends StatelessWidget {
                       color: Colors.white
                     ),)
                   ],
-                ), 
+                ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color.fromRGBO(18, 73, 132, 1),
                       padding: EdgeInsets.only(top:5,bottom:5,left:15,right:15),
@@ -314,10 +396,15 @@ class NewsFeedScreen extends StatelessWidget {
 
   Widget _buildContentFeed() {
     return Column(
-      children: List.generate(
-        5,
-            (index) => _buildFeedItem(),
-      ),
+      children:[
+
+
+        Column(
+        children: List.generate(
+          5,
+              (index) => _buildFeedItem(),
+        ),
+      ),]
     );
   }
   Widget _buildCourseItem({
@@ -416,122 +503,119 @@ class NewsFeedScreen extends StatelessWidget {
                 ],
               ),
             ),
+
           ],
         ),
     );
   }
 
   Widget _buildFeedItem() {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 1,
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Post Header
-          Row(
-            children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'User Name',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    '2 hours ago',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 12,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+    return Column(
+      children:[
 
-          // Post Content
-          const SizedBox(height: 12),
-          Container(
-            height: 200,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.grey[300],
-              borderRadius: BorderRadius.circular(8),
+        Container(
+        padding: const EdgeInsets.symmetric(vertical: 0,horizontal: 16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.1),
+              spreadRadius: 1,
+              blurRadius: 1,
             ),
-          ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Post Header
 
-          // Post Actions
-          const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Icon(Icons.favorite_border),
-                  const SizedBox(width: 4),
-                  const Text('1.2k'),
-                  const SizedBox(width: 16),
-                  const Icon(Icons.comment_outlined),
-                  const SizedBox(width: 4),
-                  const Text('234'),
-                ],
+
+            // Post Content
+            const SizedBox(height: 12),
+            Container(
+              height: 200,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(8),
               ),
-              const Icon(Icons.bookmark_border),
-            ],
-          ),
-        ],
+              child: Image.asset("assets/images/image.png"),
+            ),
+            SizedBox(height: 8,),
+            Container(
+              child: Text("A teacher’s guide to different types of assessments",style:TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 20
+              )),
+            ),
+            // Post Actions
+            const SizedBox(height: 12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Image.asset("assets/images/icon/icon18.png"),
+                    const SizedBox(width: 4),
+                    const Text('1.2k'),
+                    const SizedBox(width: 16),
+                    Image.asset("assets/images/icon/icon17.png"),
+
+                    const SizedBox(width: 4),
+                    const Text('50'),
+                    const SizedBox(width: 16),
+
+                    Image.asset("assets/images/icon/icon16.png"),
+                    const SizedBox(width: 4),
+                    const Text('234'),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
+        const Divider(
+          color: Color.fromRGBO(166, 166, 166, 0.41),
+          thickness: 1,
+          height: 48,
+        ),
+      ]
     );
   }
 
   Widget _buildBottomNavBar() {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      items: const [
+      items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+          icon: Image.asset("assets/images/icon/icon11.png"), // Icon từ asset
+          label: 'Home', // Label của item
         ),
+
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
+          icon: Image.asset("assets/images/icon/icon12.png"),
           label: 'Search',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_box_outlined),
-          label: 'Post',
+          icon: Container(),
+          label: 'Meet',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite_border),
+          icon: Image.asset("assets/images/icon/icon13.png"),
           label: 'Activity',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person_outline),
+          icon: Image.asset("assets/images/icon/icon14.png"),
           label: 'Profile',
         ),
+
       ],
+      showSelectedLabels: false, // Tắt nhãn được chọn (tùy chọn)
+      showUnselectedLabels: false,
     );
+
   }
 }

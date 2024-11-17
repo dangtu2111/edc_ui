@@ -40,6 +40,7 @@ flutter:
     - assets/images/logo02.png
     - assets/images/logo03.png
     - assets/images/logo04.png
+    - assets/images/logo05.png
     - assets/images/background01.png
     - assets/images/background02.png
     - assets/images/icon/icon01.png
@@ -52,11 +53,21 @@ flutter:
     - assets/images/icon/icon08.png
     - assets/images/icon/icon09.png
     - assets/images/icon/icon10.png
+    - assets/images/icon/icon11.png
+    - assets/images/icon/icon12.png
+    - assets/images/icon/icon13.png
+    - assets/images/icon/icon14.png
+    - assets/images/icon/icon15.png
+    - assets/images/icon/icon16.png
+    - assets/images/icon/icon17.png
+    - assets/images/icon/icon18.png
     - assets/images/icon/vietnam.png
     - assets/images/icon/google.png
     - assets/images/icon/facebook.png
     - assets/images/icon/metamask.png
     - assets/images/icon/lock.png
+    - assets/images/image.png
+    - assets/images/image01.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
