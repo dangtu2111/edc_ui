@@ -82,7 +82,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       ),
                       child:  RichText(
                         text: const TextSpan(
-                          text: 'New here', // Đoạn văn bản đầu tiên
+                          text: 'New here?', // Đoạn văn bản đầu tiên
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,

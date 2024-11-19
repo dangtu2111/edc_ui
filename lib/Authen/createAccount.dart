@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'component/Background.dart';
 
 class CreateaccountScreen extends StatefulWidget {
-  const CreateaccountScreen({Key? key}) : super(key: key);
+  const CreateaccountScreen({super.key});
 
   @override
   _LogInScreenState createState() => _LogInScreenState();
@@ -197,7 +197,15 @@ class _LogInScreenState extends State<CreateaccountScreen> {
                       )
 
                   ),
-                  const SizedBox(width: 10),
+                  const SizedBox(width: 5),
+
+                  Container(
+                    padding:  EdgeInsets.zero,
+                    width: 1.0, // Độ rộng của đường kẻ
+                    height: 20, // Chiều cao của đường kẻ
+                    color: Color(0xFFA4A4A4), // Màu sắc của đường kẻ
+                  ),
+                  const SizedBox(width: 5),
                   // TextFormField
                   Expanded(
                     child: SizedBox(
@@ -206,6 +214,10 @@ class _LogInScreenState extends State<CreateaccountScreen> {
                         controller: _nftController,
                         decoration: const InputDecoration(
                           hintText: '1111 1582 2345',
+                          hintStyle:TextStyle(
+                            color: Color(0xFFA4A4A4), // Màu của hintText
+                            fontSize: 16, // Kích thước font
+                          ),
                           border: InputBorder.none,
                         ),
 
@@ -240,10 +252,10 @@ class _LogInScreenState extends State<CreateaccountScreen> {
               ),
               child: const Text(
                 'Continue', // Văn bản trên nút bấm
-                style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
+                style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400), // Kiểu chữ của văn bản
               ),
             ),
-            const SizedBox(height: 28),
+            const SizedBox(height: 24),
             Row(
               children: [
                 const Expanded(
@@ -265,7 +277,7 @@ class _LogInScreenState extends State<CreateaccountScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 28),
+            const SizedBox(height: 24),
 
           ],
         ),
@@ -274,71 +286,79 @@ class _LogInScreenState extends State<CreateaccountScreen> {
   }
   Widget _continueScreen(){
     return Container(
+
       child: Column(
         children: [
-          ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                print('NFT Number: ${_nftController.text}');
-                print('Password: ${_passwordController.text}');
-              }
-            },
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.black,
-              backgroundColor: Colors.white, // Màu chữ trên button
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(51), // Bo góc cho button
-              ),
-              minimumSize: Size(double.infinity, 50),
-              elevation: 0,
-              side: BorderSide(color:  Color(0xFFD2D2D2), width: 1),
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Khoảng cách trong nút bấm
-            ),
-            child:  Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset("assets/images/icon/google.png"),
-                Container(
-                  margin: const EdgeInsets.only(left: 10.0, right: 10.0),
-                  child: const Text(
-                    'Continue with google', // Văn bản trên nút bấm
-                    style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
-                  ),
+          Container(
+            height: 51,
+            child: ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  print('NFT Number: ${_nftController.text}');
+                  print('Password: ${_passwordController.text}');
+                }
+              },
+              style: ElevatedButton.styleFrom(
+
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white, // Màu chữ trên button
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(51), // Bo góc cho button
                 ),
-              ],
+                minimumSize: Size(double.infinity, 50),
+                elevation: 0,
+                side: BorderSide(color:  Color(0xFFD2D2D2), width: 1),
+                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Khoảng cách trong nút bấm
+              ),
+              child:  Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("assets/images/icon/google.png"),
+                  Container(
+                    margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+                    child: const Text(
+                      'Continue with google', // Văn bản trên nút bấm
+                      style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                print('NFT Number: ${_nftController.text}');
-                print('Password: ${_passwordController.text}');
-              }
-            },
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.black,
-              backgroundColor: Colors.white, // Màu chữ trên button
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(51), // Bo góc cho button
-              ),
-              minimumSize: Size(double.infinity, 50),
-              elevation: 0,
-              side: BorderSide(color:  Color(0xFFD2D2D2), width: 1),
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Khoảng cách trong nút bấm
-            ),
-            child:  Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset("assets/images/icon/facebook.png"),
-                Container(
-                  margin: const EdgeInsets.only(left: 10.0, right: 10.0),
-                  child: const Text(
-                    'Continue with google', // Văn bản trên nút bấm
-                    style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
-                  ),
+          Container(
+            height: 51,
+            child: ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  print('NFT Number: ${_nftController.text}');
+                  print('Password: ${_passwordController.text}');
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white, // Màu chữ trên button
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(51), // Bo góc cho button
                 ),
-              ],
+                minimumSize: Size(double.infinity, 50),
+                elevation: 0,
+                side: BorderSide(color:  Color(0xFFD2D2D2), width: 1),
+                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Khoảng cách trong nút bấm
+              ),
+              child:  Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("assets/images/icon/facebook.png"),
+                  Container(
+                    margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+                    child: const Text(
+                      'Continue with google', // Văn bản trên nút bấm
+                      style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 16),

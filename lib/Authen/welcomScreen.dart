@@ -18,15 +18,15 @@ class WelcomScreen extends StatelessWidget{
             child:Container(
               margin: EdgeInsets.only( top: 20),
               child: Column(
-                children:<Widget>[
+                children:[
                   Container(
-                  width: 512,
-                  height: 400,
-                  child:
-                      Image.asset(
-                        "assets/images/logo02.png",
+                    width: 512,
+                    height: 400,
+                    child:
+                        Image.asset(
+                          "assets/images/logo02.png",
 
-                      ),
+                        ),
                   ),
                   _textContent(),
                   const SizedBox(height: 40),
@@ -131,11 +131,11 @@ class WelcomScreen extends StatelessWidget{
               ),
               minimumSize: Size(double.infinity, 50),
               elevation: 0,
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Khoảng cách trong nút bấm
+              padding: EdgeInsets.symmetric( horizontal: 20), // Khoảng cách trong nút bấm
             ),
             child: const Text(
-              'Log in', // Văn bản trên nút bấm
-              style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
+              'Create new account', // Văn bản trên nút bấm
+              style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400,color: Colors.black), // Kiểu chữ của văn bản
             ),
           ),
         ],

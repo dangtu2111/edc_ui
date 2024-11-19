@@ -196,10 +196,13 @@ class NewsFeedScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Stack(
         alignment: Alignment.bottomCenter,
+
         children: [
+
           _buildBottomNavBar(),
-          Positioned(
-            bottom: 10, // Đẩy nút lên khỏi cạnh dưới
+            Positioned(
+              bottom:10,
+            // Đẩy nút lên khỏi cạnh dưới
             child: Container(
               width: 100,
               height: 45,
