@@ -8,155 +8,189 @@ class NewsFeedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              // Top Navigation Bar
-              _buildTopNavBar(),
+        child: Container(
 
-              // Stories Section
-              _listButton(),
-
-              Container(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-
-                  children: [
-                    SizedBox(height: 10,),
-                    Row(
-                    children: const [
-                    Icon(Icons.school, size: 24),
-                    SizedBox(width: 8),
-                    Text(
-                      'Program under study',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    ],
-                    ),
-
-                    // List of courses
-                    _buildCourseItem(
-                      image: 'assets/images/image01.png',
-                      title: 'Mentoring and Coaching 1:1',
-                      duration: '1 hour',
-                      progress: 0.7,
-                    ),
-                    _buildCourseItem(
-                      image: 'assets/images/image01.png',
-                      title: 'Admissions and Scholar',
-                      duration: '1 hour',
-                      progress: 0.85,
-                    ),
-                    _buildCourseItem(
-                      image: 'assets/images/image01.png',
-                      title: 'Multilingual Teacher',
-                      duration: '1 hour',
-                      progress: 0.6,
-                    ),
-                  ],
-                ),
-              ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          child: SingleChildScrollView(
+            child: Column(
               children: [
-                // Header with logo
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center, // Căn giữa nội dung trong Row
+                // Top Navigation Bar
+                _buildTopNavBar(),
+
+                // Stories Section
+                _listButton(),
+
+                Container(
+                  margin: EdgeInsets.only(top: 16),
+                  color: const Color(0xFFF1F1F1),
+                  child: Column(
+
                     children: [
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: Colors.blue[100],
-                          shape: BoxShape.circle,
+                      SizedBox(height: 10,),
+                      Row(
+                      children:  [
+                        SizedBox(width: 20,),
+                        Container(
+                          padding:  EdgeInsets.zero,
+                          width: 3.0, // Độ rộng của đường kẻ
+                          height: 20, // Chiều cao của đường kẻ
+                          color: Color(0xFF369c09),
+                          // Màu sắc của đường kẻ
                         ),
-                        child: const Icon(
-                          Icons.psychology, // You can replace with your actual logo
-                          color: Colors.blue,
-                          size: 24,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      const Text(
-                        'EDC brings it to you',
+                      SizedBox(width: 5,),
+                      Image.asset("assets/images/logo05.png"),
+                      SizedBox(width: 8),
+                      Text(
+                        'Program under study',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      ],
+                      ),
+
+                      // List of courses
+                      _buildCourseItem(
+                        image: 'assets/images/image01.png',
+                        title: 'Mentoring and Coaching 1:1',
+                        duration: '1 hour',
+                        progress: 0.7,
+                      ),
+                      Divider(
+                        color: Colors.grey, // Màu sắc của đường kẻ
+                        thickness: 1.0,
+                        indent: 16,
+                        endIndent: 16,// Độ dày của đường kẻ
+                        // Khoảng cách từ cạnh phải
+                      ),
+                      _buildCourseItem(
+                        image: 'assets/images/image01.png',
+                        title: 'Admissions and Scholar',
+                        duration: '1 hour',
+                        progress: 0.85,
+                      ),
+                      Divider(
+                        color: Colors.grey, // Màu sắc của đường kẻ
+                        thickness: 1.0,
+                        indent: 16,
+                        endIndent: 16,// Độ dày của đường kẻ
+                        // Khoảng cách từ cạnh phải
+                      ),
+                      _buildCourseItem(
+                        image: 'assets/images/image01.png',
+                        title: 'Multilingual Teacher',
+                        duration: '1 hour',
+                        progress: 0.6,
+                      ),
                     ],
                   ),
                 ),
 
 
-                // Wrap widget for flexible button layout
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Wrap(
-                    spacing: 12, // horizontal spacing between buttons
-                    runSpacing: 12, // vertical spacing between lines
+                Container(
+                  margin: EdgeInsets.only(top:16),
+                  color:const Color(0xFFF1F1F1) ,
+                  child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Header with logo
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center, // Căn giữa nội dung trong Row
+                        children: [
+                          Container(
+                            width:28,
+                            decoration: BoxDecoration(
+                              color: Colors.blue[100],
+                              shape: BoxShape.circle,
+
+                            ),
+                            child: Image.asset("assets/images/icon/icon19.png"),
+                          ),
+                          const SizedBox(width: 8),
+                          const Text(
+                            'EDC brings it to you',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+
+                    // Wrap widget for flexible button layout
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Wrap(
+                        spacing: 12, // horizontal spacing between buttons
+                        runSpacing: 12, // vertical spacing between lines
+                        children: [
+                          _buildNavigationButton('Online course'),
+                          _buildNavigationButton('Scholarship'),
+                          _buildNavigationButton('Learning diary'),
+                          _buildNavigationButton('Numerology'),
+                          _buildNavigationButton('Horoscopes'),
+                          _buildNavigationButton('Apply for job'),
+                          _buildNavigationButton('Blockchain library'),
+                          _buildNavigationButton('Study abroad'),
+                          _buildNavigationButton('Mining'),
+                          _buildNavigationButton('Personal orientation'),
+                          _buildNavigationButton('Teacher recruitment'),
+                        ],
+                      ),
+                    ),
+                  ],
+                                ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  margin: EdgeInsets.only(top: 16),
+                  color: const Color(0xFFF1F1F1),
+                  child: Row(
                     children: [
-                      _buildNavigationButton('Online course'),
-                      _buildNavigationButton('Scholarship'),
-                      _buildNavigationButton('Learning diary'),
-                      _buildNavigationButton('Numerology'),
-                      _buildNavigationButton('Horoscopes'),
-                      _buildNavigationButton('Apply for job'),
-                      _buildNavigationButton('Blockchain library'),
-                      _buildNavigationButton('Study abroad'),
-                      _buildNavigationButton('Mining'),
-                      _buildNavigationButton('Personal orientation'),
-                      _buildNavigationButton('Teacher recruitment'),
+                      SizedBox(width: 20,),
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.grey,
+                        ),
+                        child: Image.asset("assets/images/logo05.png"),
+                      ),
+                      const SizedBox(width: 8),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+
+                          Text(
+                            'User Name',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            '2 hours ago',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
+                SizedBox(height: 10),
+                // Content Feed
+                _buildContentFeed(),
+
+
               ],
             ),
-              SizedBox(height: 20),
-              Row(
-                children: [
-                  SizedBox(width: 20,),
-                  Container(
-                    width: 40,
-                    height: 40,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.grey,
-                    ),
-                    child: Image.asset("assets/images/logo05.png"),
-                  ),
-                  const SizedBox(width: 8),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-
-                      Text(
-                        'User Name',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '2 hours ago',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              // Content Feed
-              _buildContentFeed(),
-
-
-            ],
           ),
         ),
       ),
@@ -235,10 +269,7 @@ class NewsFeedScreen extends StatelessWidget {
           Image.asset("assets/images/logo04.png"),
           Row(
             children: [
-              IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () {},
-              ),
+
               IconButton(
                 icon: const Icon(Icons.notifications_outlined),
                 onPressed: () {},
@@ -253,7 +284,6 @@ class NewsFeedScreen extends StatelessWidget {
   Widget _listButton() {
     return Container(
       height: 100,
-      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Wrap(  // Dùng Wrap để tự động xuống dòng khi cần
         spacing: 8.0,  // Khoảng cách giữa các nút
         runSpacing: 8.0,  // Khoảng cách giữa các hàng (nếu xuống dòng)
@@ -395,16 +425,19 @@ class NewsFeedScreen extends StatelessWidget {
 
 
   Widget _buildContentFeed() {
-    return Column(
-      children:[
+    return Container(
+      color: const Color(0xFFF1F1F1),
+      child: Column(
+        children:[
 
 
-        Column(
-        children: List.generate(
-          5,
-              (index) => _buildFeedItem(),
-        ),
-      ),]
+          Column(
+          children: List.generate(
+            5,
+                (index) => _buildFeedItem(),
+          ),
+        ),]
+      ),
     );
   }
   Widget _buildCourseItem({
@@ -414,6 +447,7 @@ class NewsFeedScreen extends StatelessWidget {
     required double progress,
   }) {
     return Container(
+        color: const Color(0xFFF1F1F1),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(
           children: [
@@ -454,10 +488,7 @@ class NewsFeedScreen extends StatelessWidget {
                   // Video Duration
                   Row(
                     children: [
-                      const Icon(Icons.play_circle_filled,
-                          size: 16,
-                          color: Colors.black54
-                      ),
+                      Image.asset("assets/images/icon/video.png",width: 24,),
                       const SizedBox(width: 4),
                       Text(
                         'Video',
@@ -489,15 +520,19 @@ class NewsFeedScreen extends StatelessWidget {
                   const SizedBox(height: 4),
 
                   // Progress Bar
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: LinearProgressIndicator(
-                      value: progress,
-                      backgroundColor: Colors.grey[200],
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        Colors.green[400]!,
+                  Container(
+                    width: 150,
+                    child: ClipRRect(
+
+                      borderRadius: BorderRadius.circular(10),
+                      child: LinearProgressIndicator(
+                        value: progress,
+                        backgroundColor: Color(0xFF124984),
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          Colors.green[400]!,
+                        ),
+                        minHeight: 6,
                       ),
-                      minHeight: 6,
                     ),
                   ),
                 ],
@@ -510,79 +545,78 @@ class NewsFeedScreen extends StatelessWidget {
   }
 
   Widget _buildFeedItem() {
-    return Column(
-      children:[
+    return Container(
+      color: const Color(0xFFF1F1F1),
+      child: Column(
+        children:[
 
-        Container(
-        padding: const EdgeInsets.symmetric(vertical: 0,horizontal: 16),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
-              spreadRadius: 1,
-              blurRadius: 1,
-            ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Post Header
+          Container(
+          padding: const EdgeInsets.symmetric(vertical: 0,horizontal: 16),
+          decoration: BoxDecoration(
+
+            borderRadius: BorderRadius.circular(8),
+
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Post Header
 
 
-            // Post Content
-            const SizedBox(height: 12),
-            Container(
-              height: 200,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Image.asset("assets/images/image.png"),
-            ),
-            SizedBox(height: 8,),
-            Container(
-              child: Text("A teacher’s guide to different types of assessments",style:TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 20
-              )),
-            ),
-            // Post Actions
-            const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Image.asset("assets/images/icon/icon18.png"),
-                    const SizedBox(width: 4),
-                    const Text('1.2k'),
-                    const SizedBox(width: 16),
-                    Image.asset("assets/images/icon/icon17.png"),
+              // Post Content
+              const SizedBox(height: 12),
+              Container(
 
-                    const SizedBox(width: 4),
-                    const Text('50'),
-                    const SizedBox(width: 16),
-
-                    Image.asset("assets/images/icon/icon16.png"),
-                    const SizedBox(width: 4),
-                    const Text('234'),
-                  ],
+                height: 200,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(8),
                 ),
-              ],
-            ),
-          ],
+                child: Image.asset("assets/images/image.png"),
+              ),
+              SizedBox(height: 8,),
+              Container(
+                color: const Color(0xFFF1F1F1),
+                child: Text("A teacher’s guide to different types of assessments",style:TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20
+                )),
+              ),
+              // Post Actions
+              const SizedBox(height: 12),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Image.asset("assets/images/icon/icon18.png"),
+                      const SizedBox(width: 4),
+                      const Text('1.2k'),
+                      const SizedBox(width: 16),
+                      Image.asset("assets/images/icon/icon17.png"),
+
+                      const SizedBox(width: 4),
+                      const Text('50'),
+                      const SizedBox(width: 16),
+
+                      Image.asset("assets/images/icon/icon16.png"),
+                      const SizedBox(width: 4),
+                      const Text('234'),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
+          const Divider(
+            color: Color.fromRGBO(166, 166, 166, 0.41),
+            thickness: 1,
+            height: 48,
+          ),
+        ]
       ),
-        const Divider(
-          color: Color.fromRGBO(166, 166, 166, 0.41),
-          thickness: 1,
-          height: 48,
-        ),
-      ]
     );
   }
 

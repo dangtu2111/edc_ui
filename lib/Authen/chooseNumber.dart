@@ -113,17 +113,41 @@ class _ChooseNumberSheetState extends State<ChooseNumberSheet> {
 
                         // Search TextField
                         Container(
-                          height: 36,  // Chiều cao cố định cho search field
+                          height: 36,
+
+                          // Chiều cao cố định cho search field
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: '1111',
+                              hintStyle: TextStyle(
+                                color: Color(0xFFA4A4A4), // Màu của hintText
+                                fontSize: 16, // Kích thước font
+                              ),
+
                               prefixIcon: const Icon(Icons.search, color: Colors.grey, size: 20),
                               suffixIcon: const Icon(Icons.close, color: Colors.grey, size: 20),
                               filled: true,
-                              fillColor: Colors.grey[200],
+                              fillColor: Colors.white,
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide(
+                                  color: Color(0xFFD2D2D2), // Border color when enabled
+                                  width: 1.0, // Border width when enabled
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide(
+                                  color: Color(0xFFD2D2D2), // Border color when enabled
+                                  width: 1.0, // Border width when enabled
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide(
+                                  color: Color(0xFFD2D2D2), // Border color when enabled
+                                  width: 1.0, // Border width when enabled
+                                ),
                               ),
                               contentPadding: const EdgeInsets.symmetric(vertical: 0),
                               isDense: true,
@@ -140,12 +164,16 @@ class _ChooseNumberSheetState extends State<ChooseNumberSheet> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: ListView.separated(
+
                             shrinkWrap: true,
                             physics: NeverScrollableScrollPhysics(),
                             itemCount: numbers.length,
-                            separatorBuilder: (context, index) => Divider(
-                              height: 1,
-                              color: Colors.grey[300],
+                            separatorBuilder: (context, index) => Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 16.0), // Adjust padding as needed
+                              child: Divider(
+                                height: 1,
+                                color: const Color(0xFFA4A4A4), // Divider color
+                              ),
                             ),
                             itemBuilder: (context, index) {
                               final number = numbers[index];
@@ -168,7 +196,7 @@ class _ChooseNumberSheetState extends State<ChooseNumberSheet> {
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(4),
                                         border: Border.all(
-                                          color: const Color(0xFF124984),
+                                          color: const Color(0xFFA4A4A4),
                                           width: 1.5,
                                         ),
                                       ),
@@ -178,6 +206,7 @@ class _ChooseNumberSheetState extends State<ChooseNumberSheet> {
                                             shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.circular(4),
                                             ),
+
                                           ),
                                         ),
                                         child: Checkbox(

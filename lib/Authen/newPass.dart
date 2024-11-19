@@ -96,7 +96,7 @@ class _ResetPassScreenState extends State<ResetPassScreen> {
     return Scaffold(
       body: Stack(
         children: [
-
+          Background().defauld,
           Align(
             alignment: Alignment.topCenter,
             child: SingleChildScrollView(
@@ -129,7 +129,7 @@ class _ResetPassScreenState extends State<ResetPassScreen> {
           const SizedBox(height: 15),
           _buildPasswordField(
             controller: _passwordController,
-            hint: '••••••••',
+            hint: '••••••',
             obscureText: _obscurePassword,
             onToggle: () {
               setState(() {
@@ -151,7 +151,7 @@ class _ResetPassScreenState extends State<ResetPassScreen> {
           const SizedBox(height: 10),
           _buildPasswordField(
             controller: _confirmPasswordController,
-            hint: '••••••••',
+            hint: '••••••',
             obscureText: _obscureConfirmPassword,
             onToggle: () {
               setState(() {
@@ -210,29 +210,38 @@ class _ResetPassScreenState extends State<ResetPassScreen> {
         ),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: TextFormField(
-        controller: controller,
-        obscureText: obscureText,
-        onChanged: (value) {
-          if (controller == _passwordController) {
-            _validatePasswordCriteria();
-          } else {
-            _checkPasswordsMatch();
-          }
-        },
-        decoration: InputDecoration(
-          hintText: hint,
-          border: InputBorder.none,
-          prefixIcon: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset("assets/images/icon/lock.png"),
-              const SizedBox(width: 5),
-            ],
-          ),
-          suffixIcon: IconButton(
-            icon: Icon(obscureText ? Icons.visibility : Icons.visibility_off),
-            onPressed: onToggle,
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: TextFormField(
+          controller: controller,
+          obscureText: obscureText,
+          onChanged: (value) {
+            if (controller == _passwordController) {
+              _validatePasswordCriteria();
+            } else {
+              _checkPasswordsMatch();
+            }
+          },
+          textAlign: TextAlign.start,
+          decoration: InputDecoration(
+            hintText: hint,
+            hintStyle: TextStyle(
+              color: Color(0xFFA4A4A4), // Màu của hintText
+              fontSize: 25, // Kích thước font
+            ),
+            border: InputBorder.none,
+            prefixIcon: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset("assets/images/icon/lock.png"),
+                const SizedBox(width: 5),
+              ],
+            ),
+            suffixIcon: IconButton(
+              icon: Image.asset("assets/images/icon/icon00.png"),
+              // icon: Icon(obscureText ? Icons.visibility : Icons.visibility_off),
+              onPressed: onToggle,
+            ),
           ),
         ),
       ),

@@ -48,58 +48,66 @@ class _LogInScreenState extends State<LogInScreen> {
           Background().defauld,
           Align(
               alignment: Alignment.topCenter,
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _topScreen(),
-                    const SizedBox(height: 53),
-                    _formLogin(),
-                    _continueScreen(),
-                    Container(
-                      margin: EdgeInsets.only(top:20),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // Xử lý khi nút bấm được nhấn
-                          print('Button pressed');
-                        },
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.black,
-                          backgroundColor: Colors.white, // Màu chữ trên button
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(51), // Bo góc cho button
-                          ),
-                          minimumSize: Size(double.infinity, 50),
-                          elevation: 0,
-                          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Khoảng cách trong nút bấm
+              child: Column(
+                children:[ SingleChildScrollView(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _topScreen(),
+                      const SizedBox(height: 30),
+                      _formLogin(),
+                      _continueScreen(),
+
+
+                    ],
+                  ),
+                ),
+                  Positioned(
+                    bottom:0,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Xử lý khi nút bấm được nhấn
+                        print('Button pressed');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.transparent, // Màu chữ trên button
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(51), // Bo góc cho button
                         ),
-                        child:  RichText(
-                          text: const TextSpan(
-                            text: 'New here', // Đoạn văn bản đầu tiên
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFFA4A4A4A4),
-                            ),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text: ' Create new account', // Đoạn văn bản thứ hai
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black, // Màu chữ cho "App"
-                                ),
-                              ),
-                            ],
+                        minimumSize: Size(double.infinity, 50),
+                        elevation: 0,
+                        padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Khoảng cách trong nút bấm
+                      ),
+                      child:  RichText(
+                        text: const TextSpan(
+                          text: 'New here', // Đoạn văn bản đầu tiên
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFA4A4A4A4),
                           ),
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: ' Create new account', // Đoạn văn bản thứ hai
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                // Màu chữ cho "App"
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ]
               ),
 
+
           ),
+
         ],
       ),
     );
@@ -140,6 +148,8 @@ class _LogInScreenState extends State<LogInScreen> {
             ),
             const SizedBox(height: 10),
             Container(
+              width: 390,
+              height:52,
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(
@@ -152,10 +162,10 @@ class _LogInScreenState extends State<LogInScreen> {
                 children: [
                   // Dropdown
                   Container(
-                    width: 80, // Set a width for dropdown
+                    width: 75, // Set a width for dropdown
                     height: 52,
-                    margin: EdgeInsets.only(left:10),
-                    decoration: BoxDecoration(
+                    margin: const EdgeInsets.only(left:10),
+                    decoration: const BoxDecoration(
                     color: Colors.white,
                     ),
                     child: DropdownButtonFormField<Image>(
@@ -189,9 +199,16 @@ class _LogInScreenState extends State<LogInScreen> {
                       ),
 
                     )
-              
+
                   ),
                   const SizedBox(width: 10),
+                  Container(
+                    padding:  EdgeInsets.zero,
+                    width: 1.0, // Độ rộng của đường kẻ
+                    height: 20, // Chiều cao của đường kẻ
+                    color: Color(0xFFA4A4A4), // Màu sắc của đường kẻ
+                  ),
+                  SizedBox(width: 5,),
                   // TextFormField
                   Expanded(
                     child: SizedBox(
@@ -220,9 +237,9 @@ class _LogInScreenState extends State<LogInScreen> {
                 ],
               ),
             ),
-      
-      
-            const SizedBox(height: 24),
+
+
+            const SizedBox(height: 20),
             const Text(
               "Password",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
@@ -231,7 +248,7 @@ class _LogInScreenState extends State<LogInScreen> {
             Container(
               padding: const EdgeInsets.only(left:15,right: 15),
               height: 52,
-      
+
               decoration: BoxDecoration(
                 color:Colors.white,
                 border: Border.all(
@@ -244,7 +261,11 @@ class _LogInScreenState extends State<LogInScreen> {
                 controller: _passwordController,
                 obscureText: true,
                 decoration:  InputDecoration(
-                  hintText: '••••••••', // Ẩn nhãn khi đã nhập
+                  hintText: '••••••',
+                  hintStyle: TextStyle(
+                    color: Color(0xFFA4A4A4), // Màu của hintText
+                    fontSize: 25, // Kích thước font
+                  ),// Ẩn nhãn khi đã nhập
                   border: InputBorder.none,
                   prefixIcon: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -254,9 +275,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     ],
                   ),
                     suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscurePassword ? Icons.visibility : Icons.visibility_off,
-                      ),
+                      icon: Image.asset("assets/images/icon/icon00.png"),
                       onPressed: () {
                         setState(() {
                           _obscurePassword = !_obscurePassword; // Đổi trạng thái ẩn/hiện
@@ -274,7 +293,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 },
               ),
             ),
-            const SizedBox(height: 10),
+
             Align(
               alignment: Alignment.centerLeft,
               child: GestureDetector(
@@ -298,8 +317,8 @@ class _LogInScreenState extends State<LogInScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 24),
-      
+            const SizedBox(height: 15),
+
             ElevatedButton(
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
@@ -318,8 +337,8 @@ class _LogInScreenState extends State<LogInScreen> {
                 padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Khoảng cách trong nút bấm
               ),
               child: const Text(
-                'Create new account', // Văn bản trên nút bấm
-                style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
+                'Log in', // Văn bản trên nút bấm
+                style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400), // Kiểu chữ của văn bản
               ),
             ),
             const SizedBox(height: 28),
@@ -345,7 +364,7 @@ class _LogInScreenState extends State<LogInScreen> {
               ],
             ),
             const SizedBox(height: 28),
-      
+
           ],
         ),
       ),
@@ -353,38 +372,43 @@ class _LogInScreenState extends State<LogInScreen> {
   }
   Widget _continueScreen(){
     return Container(
+
       child: Column(
         children: [
-          ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                print('NFT Number: ${_nftController.text}');
-                print('Password: ${_passwordController.text}');
-              }
-            },
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.black,
-              backgroundColor: Colors.white, // Màu chữ trên button
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(51), // Bo góc cho button
-              ),
-              minimumSize: Size(double.infinity, 50),
-              elevation: 0,
-              side: BorderSide(color:  Color(0xFFD2D2D2), width: 1),
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Khoảng cách trong nút bấm
-            ),
-            child:  Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset("assets/images/icon/google.png"),
-                Container(
-                  margin: const EdgeInsets.only(left: 10.0, right: 10.0),
-                  child: const Text(
-                    'Continue with google', // Văn bản trên nút bấm
-                    style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
-                  ),
+          Container(
+            height: 51,
+            child: ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  print('NFT Number: ${_nftController.text}');
+                  print('Password: ${_passwordController.text}');
+                }
+              },
+              style: ElevatedButton.styleFrom(
+
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white, // Màu chữ trên button
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(51), // Bo góc cho button
                 ),
-              ],
+                minimumSize: Size(double.infinity, 50),
+                elevation: 0,
+                side: BorderSide(color:  Color(0xFFD2D2D2), width: 1),
+                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Khoảng cách trong nút bấm
+              ),
+              child:  Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("assets/images/icon/google.png"),
+                  Container(
+                    margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+                    child: const Text(
+                      'Continue with google', // Văn bản trên nút bấm
+                      style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 16),
@@ -413,7 +437,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 Container(
                   margin: const EdgeInsets.only(left: 10.0, right: 10.0),
                   child: const Text(
-                    'Continue with google', // Văn bản trên nút bấm
+                    'Continue with Facebook', // Văn bản trên nút bấm
                     style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
                   ),
                 ),
@@ -448,7 +472,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 Container(
                   margin: const EdgeInsets.only(left: 10.0, right: 10.0),
                   child: const Text(
-                    'Continue with google', // Văn bản trên nút bấm
+                    'Continue with Metamask', // Văn bản trên nút bấm
                     style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
                   ),
                 ),

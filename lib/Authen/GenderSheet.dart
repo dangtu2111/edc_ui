@@ -44,7 +44,7 @@ class _GenderState extends State<Gender> {
   Widget build(BuildContext context) {
     return Container(
       width: 320,
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.only(top:16,bottom:16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -129,23 +129,26 @@ class _GenderState extends State<Gender> {
             ),
           ),
           SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: () {
-              // Logic để lưu hoặc sử dụng ngày đã chọn
-              print('Ngày đã chọn: $selectedDay $selectedMonth $selectedYear');
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue[800],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
+          Container(
+            margin:EdgeInsets.symmetric(horizontal: 16),
+            child: ElevatedButton(
+              onPressed: () {
+                // Logic để lưu hoặc sử dụng ngày đã chọn
+                print('Ngày đã chọn: $selectedDay $selectedMonth $selectedYear');
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue[800],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                padding: EdgeInsets.symmetric(vertical: 14),
               ),
-              padding: EdgeInsets.symmetric(vertical: 14),
-            ),
-            child: Center(
-              child: Text(
-                'Save',
-                style: TextStyle(
-                  color: Colors.white,
+              child: Center(
+                child: Text(
+                  'Save',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),

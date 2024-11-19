@@ -75,7 +75,7 @@ class _LogInScreenState extends State<CreateaccountScreen> {
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.black,
-                  backgroundColor: Color.fromRGBO(255, 255, 255, 0), // Màu chữ trên button
+                  backgroundColor: Colors.transparent, // Màu chữ trên button
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(51), // Bo góc cho button
                   ),
@@ -208,12 +208,7 @@ class _LogInScreenState extends State<CreateaccountScreen> {
                           hintText: '1111 1582 2345',
                           border: InputBorder.none,
                         ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter your NFT number';
-                          }
-                          return null;
-                        },
+
                       ),
                     ),
                   ),

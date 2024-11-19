@@ -43,6 +43,7 @@ flutter:
     - assets/images/logo05.png
     - assets/images/background01.png
     - assets/images/background02.png
+    - assets/images/icon/icon00.png
     - assets/images/icon/icon01.png
     - assets/images/icon/icon02.png
     - assets/images/icon/icon03.png
@@ -61,6 +62,8 @@ flutter:
     - assets/images/icon/icon16.png
     - assets/images/icon/icon17.png
     - assets/images/icon/icon18.png
+    - assets/images/icon/icon19.png
+    - assets/images/icon/video.png
     - assets/images/icon/vietnam.png
     - assets/images/icon/google.png
     - assets/images/icon/facebook.png

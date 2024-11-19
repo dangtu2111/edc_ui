@@ -29,7 +29,7 @@ class WelcomScreen extends StatelessWidget{
                       ),
                   ),
                   _textContent(),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 40),
                   _bottomScreen(context)
 
                 ]
@@ -63,7 +63,7 @@ class WelcomScreen extends StatelessWidget{
               ),
               children: <TextSpan>[
                 TextSpan(
-                  text: ' App', // Đoạn văn bản thứ hai
+                  text: ' App!', // Đoạn văn bản thứ hai
                   style: TextStyle(
                     fontSize: 40,
                     color: Color(0xFF2388F9), // Màu chữ cho "App"
@@ -81,6 +81,7 @@ class WelcomScreen extends StatelessWidget{
               color: Color(0xFFA4A4A4), // Màu #AA4A4A // Đảm bảo chữ nổi bật trên nền tối
             ),
           ),
+
         ],
       ),
     );
@@ -124,7 +125,7 @@ class WelcomScreen extends StatelessWidget{
             },
             style: ElevatedButton.styleFrom(
               foregroundColor: Colors.black,
-              backgroundColor: Colors.white, // Màu chữ trên button
+              backgroundColor: Colors.transparent, // Màu chữ trên button
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(51), // Bo góc cho button
               ),
@@ -133,7 +134,7 @@ class WelcomScreen extends StatelessWidget{
               padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20), // Khoảng cách trong nút bấm
             ),
             child: const Text(
-              'Create new account', // Văn bản trên nút bấm
+              'Log in', // Văn bản trên nút bấm
               style: TextStyle(fontSize: 18), // Kiểu chữ của văn bản
             ),
           ),

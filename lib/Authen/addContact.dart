@@ -126,6 +126,7 @@ class _AddcontactScreenState extends State<AddcontactScreen> {
                   ),
                   Container(
                     padding: const EdgeInsets.all(10),
+                    color: Color(0xFFFAFAFA),
                     child: Column(
                       children: [
                         _buildListTile(
@@ -135,10 +136,7 @@ class _AddcontactScreenState extends State<AddcontactScreen> {
                             // Handle user name tap
                           },
                         ),
-                        Divider(
-                          height: 1,
-                          color: Colors.blue[100],
-                        ),
+
                         _buildListTile(
                           title: 'Gender',
                           value: 'Male',
@@ -146,10 +144,7 @@ class _AddcontactScreenState extends State<AddcontactScreen> {
                             _selectGender(context);
                           },
                         ),
-                        Divider(
-                          height: 1,
-                          color: Colors.blue[100],
-                        ),
+
                         _buildListTile(
                           title: 'Birthday',
                           value: _birthdayController.text, // Hiển thị ngày sinh
@@ -176,6 +171,7 @@ class _AddcontactScreenState extends State<AddcontactScreen> {
       margin: const EdgeInsets.only(top: 25),
       child: Row(
         children: [
+          const SizedBox(width: 20),
           Image.asset(
             "assets/images/icon/icon01.png",
             height: 24,
